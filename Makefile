@@ -31,7 +31,8 @@ $(ALIBRARY): $(OBJECTS)
 	$(AR) rcs $@ $(OBJECTS)
 
 $(SOLIBRARY): $(OBJECTS)
-	$(CXX) $(CPPFLAGS) -shared -o $(SOLIBRARY) $(OBJECTS)
+	libtool --mode=link gcc -g -O -o libamqpcpp.la $(LOOBJECTS) -rpath /usr/lib/x86_64-linux-gnu/
+	#$(CXX) $(CPPFLAGS) -shared -o $(SOLIBRARY) $(OBJECTS)
 
 $(EXAMPLES): $(addprefix examples/,$(EXFILES)) $(LIBFILE)
 	$(CXX) $(CPPFLAGS) -o $@ examples/$@.cpp $(LIBFILE) $(LIBS)

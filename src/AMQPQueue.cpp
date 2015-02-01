@@ -32,7 +32,8 @@ AMQPQueue::AMQPQueue(amqp_connection_state_t * cnn, int channelNum, string name)
 }
 
 AMQPQueue::~AMQPQueue() {
-	this->closeChannel();
+	//this->closeChannel();
+	cout << "Starting listening thread" << endl;
 	if (pmessage)
 		delete pmessage;
 }
